@@ -6,14 +6,30 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
-const ingredientsEl = [];
-ingredients.forEach(function (ingredient) {
+//FirstTry
+// const ingredientsEl = [];
+
+// ingredients.forEach(function (ingredient) {
+//   const ingredientNameEl = document.createElement("li");
+//   ingredientNameEl.classList.add("item");
+//   ingredientNameEl.textContent = ingredient;
+//   ingredientsEl.push(ingredientNameEl);
+// })
+// console.log(ingredientsEl);
+// const ingredientEl = document.querySelector("ul");
+// console.log(ingredientEl);
+// ingredientEl.append(...ingredientsEl);
+//SecondTry 
+const ingredientEl = document.querySelector("ul");
+
+const createListOfLi = ingredientsArray => {
+  return ingredientsArray.map(ingredient => {
   const ingredientNameEl = document.createElement("li");
   ingredientNameEl.classList.add("item");
   ingredientNameEl.textContent = ingredient;
-  ingredientsEl.push(ingredientNameEl);
-})
-console.log(ingredientsEl);
-const ingredientEl = document.querySelector("ul");
-console.log(ingredientEl);
-ingredientEl.append(...ingredientsEl);
+  return ingredientNameEl
+  })
+}
+const namesList = createListOfLi(ingredients);
+
+ingredientEl.append(...namesList);
