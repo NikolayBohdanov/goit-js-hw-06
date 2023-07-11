@@ -12,7 +12,6 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-console.log(images[0].alt)
 const makeImagesMarkup = ({ url, alt }) => {
   return `
   <li class="gallery--items">
