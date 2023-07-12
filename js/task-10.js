@@ -15,21 +15,29 @@ createEl.addEventListener("click", function () {
 });
 
 function createBoxes(amount) {
-  console.log(amount)
+  const minValue = Number(inputEl.min);
+  const maxValue = Number(inputEl.max);
+  const stepValue = Number(inputEl.step);
+  const amountOfBoxes = Number(amount);
   const boxesArray = [];
-  for (let i = 0; i < amount; i++){
-    const hexColour = getRandomHexColor();
-    const divWidth = 30 + (i * 10);
-    const divHeight = 30 + (i * 10);
-    boxesArray.push(`<div style= 'width: ${divWidth}px; height: ${divHeight}px; background-color: ${hexColour};'></div>`);
-    console.log(boxesArray);
+  if (amountOfBoxes >= minValue &&  amountOfBoxes<=maxValue) {
+    for (let i = 0; i < amountOfBoxes; i += stepValue) {
+      const hexColour = getRandomHexColor();
+      const divWidth = 30 + (i * 10);
+      const divHeight = 30 + (i * 10);
+      boxesArray.push(`<div style= 'width: ${divWidth}px; height: ${divHeight}px; background-color: ${hexColour};'></div>`);
+      console.log(boxesArray);
+    }
+    const makeDivGallery = boxesArray.join("");
+    console.log(makeDivGallery)
+    divEl.insertAdjacentHTML('beforeend', makeDivGallery);
+  } else {
+    alert('You are out of the permitted value');
   }
-  const makeDivGallery = boxesArray.join("");
-  console.log(makeDivGallery)
-  divEl.insertAdjacentHTML('afterbegin', makeDivGallery);
 }
 
 destroyEl.addEventListener("click", destroyBoxes)
-function destroyBoxes(event) {
+function destroyBoxes() {
   divEl.innerHTML = "";
+  inputEl.value = "";
 }
