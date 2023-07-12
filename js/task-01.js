@@ -1,17 +1,3 @@
-// const categoriesEl = document.querySelectorAll("ul#categories li.item");
-// console.log('Number of categories:', categoriesEl.length);
-
-// const categoryNamesArray = document.querySelectorAll("li.item");
-// // categoryNamesArray.forEach(function (category) {
-// //     let categoryName = category.children;
-// //     console.log(categoryName)
-// //     let categoryLength = category.querySelectorAll('li');
-// //     console.log(``)
-// //     console.log(`Category: ${categoryName.textContent}`);
-// //     console.log(`Elements: ${categoryLength.length}`)
-// // });
-
-
 const categoriesElem = document.body.firstElementChild.nextSibling.nextSibling;
 console.log('Number of categories:', categoriesElem.children.length);
 
